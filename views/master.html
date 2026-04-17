@@ -1,4 +1,40 @@
-<form action="/upload" method="POST" enctype="multipart/form-data">
-<input type="file" name="file">
-<button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Upload File</h2>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <label class="custom-file">
+            Choose File
+            <input type="file" name="many-files" multiple onchange="updateFileName(this)">
+        </label>
+
+        <span id="file-name" class="file-name">No file chosen</span>
+
+        <br>
+
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+<script>
+function updateFileName(input) {
+    let text = "No file chosen";
+    if (input.files.length > 0) {
+        text = input.files.length + " file(s) selected";
+    }
+    document.getElementById("file-name").innerText = text;
+}
+</script>
+
+</body>
+</html>

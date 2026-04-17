@@ -108,8 +108,12 @@
 
 const express = require("express");
 const multer = require("multer");
+const path = require("path");
 
 const app = express();
+
+// cho phép load CSS
+app.use(express.static("views"));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, "uploads"),
@@ -118,15 +122,12 @@ const storage = multer.diskStorage({
 
 let uploadManyFiles = multer({ storage: storage }).array("many-files", 17);
 
+// load HTML
 app.get("/", (req, res) => {
-    res.send(`
-<form action="/upload" method="post" enctype="multipart/form-data">
-<input type="file" name="many-files" multiple />
-<button type="submit">Upload</button>
-</form>
-`);
+    res.sendFile(path.join(__dirname, "views/master.html"));
 });
 
+// upload
 app.post("/upload", (req, res) => {
     uploadManyFiles(req, res, (err) => {
         if (err) return res.send("Lỗi upload");

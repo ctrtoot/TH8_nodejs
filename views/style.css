@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef2f7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 420px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ẩn input file gốc */
+input[type="file"] {
+    display: none;
+}
+
+/* Nút chọn file */
+.custom-file {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #6c757d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.custom-file:hover {
+    background: #5a6268;
+}
+
+/* Tên file */
+.file-name {
+    display: inline-block;
+    margin-left: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Nút upload */
+button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
+}
